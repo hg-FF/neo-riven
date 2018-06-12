@@ -1,5 +1,5 @@
 /* NēoRiven
-	 - Reactive flow-based programming framework inspired and kind of based by Riven
+	 - A Node friendly re-implementation of Riven.
 	 - (^^_)
  */
 
