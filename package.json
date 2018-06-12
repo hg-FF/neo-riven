@@ -1,0 +1,14 @@
+{
+  "name": "isov",
+  "version": "1.0.0",
+  "description": "Tiny framework for reactive flow-based programming.",
+  "main": "source/index.js",
+  "repository": "https://github.com/1101computer/isov",
+  "author": "Noah Swanson",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "ramda": "^0.25.0",
+    "s-js": "^0.4.8"
+  }
+}
