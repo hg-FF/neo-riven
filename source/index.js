@@ -4,7 +4,7 @@
  */
 
 const S = require('s-js')
-const { curryN } = require('ramda')
+const { curryN, __ } = require('ramda')
 
 const bØ = curryN(2, (ctx, selector) => {
 	let id = selector.toLowerCase()
@@ -70,7 +70,7 @@ class Riven {
 
 	bind() {
 		return {
-			Ø: bØ(this, R.__),
+			Ø: bØ(this, __),
 		}
 	}
 }
@@ -107,8 +107,8 @@ class RNode {
 		mesh.setup()
 		this.ctx.add(mesh)
 
-    if(n instanceof Array) {
-      for(id in n) {
+    if (n instanceof Array) {
+      for (let id in n) {
         n[id].parent = mesh;
         mesh.children.push(n[id]);  
         mesh.update();
@@ -123,11 +123,11 @@ class RNode {
 
 	connect(q, type = Riven.ROUTE_TYPES.output) {
     if (q instanceof Array) {
-      for (id in q) {
+      for (let id in q) {
         this.connect(q[id],type)
       }
     } else {
-      this.ports[type == ROUTE_TYPES.request ? "request" : "output"].connect(`${q} ${type == ROUTE_TYPES.request ? "answer" : "input"}`,type);  
+      this.ports[type == Riven.ROUTE_TYPES.request ? "request" : "output"].connect(`${q} ${type == Riven.ROUTE_TYPES.request ? "answer" : "input"}`,type);  
     }
 	}
 
@@ -141,7 +141,7 @@ class RNode {
 	}
 
 	signal(target) {
-    for (port_id in this.ports) {
+    for (let port_id in this.ports) {
       let port = this.ports[port_id]
       for (route_id in port.routes) {
         let route = port.routes[route_id]
@@ -153,7 +153,7 @@ class RNode {
 	}
 
 	send(payload) {
-    for (route_id in this.ports.output.routes) {
+    for (let route_id in this.ports.output.routes) {
       let route = this.ports.output.routes[route_id];
       if (!route) { continue; }
       route.host.receive(payload)
@@ -162,7 +162,7 @@ class RNode {
 
 	receive(q) {
    	let port = this.ports.output
-    for (route_id in port.routes) {
+    for (let route_id in port.routes) {
       let route = port.routes[route_id]
       if (route) {
         route.host.receive(q)  
@@ -175,7 +175,7 @@ class RNode {
 
 	request(q) {
     let payload = {};
-    for (route_id in this.ports.request.routes) {
+    for (let route_id in this.ports.request.routes) {
       let route = this.ports.request.routes[route_id]
       if (!route) { continueS }
       let answer = route.host.answer(q)

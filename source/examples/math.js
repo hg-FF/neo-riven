@@ -1,33 +1,28 @@
 const Riven = require('..')
-
 const rvn = new Riven()
 const { Ø } = rvn.bind()
 
-Ø('add').create({x: 0, y: 0}, AddNode)
-
-class AddNode extends Riven.Node {
-	constructor(id, rect) {
-		super(id, rect)
-		this.glyph = Riven.NODE_GLYPHS.equal
-		this.label = 'add'
+class BangNode extends Riven.Node {
+	constructor(ctx, id, rect) {
+		super(ctx, id, rect)
+		this.glyph = Riven.NODE_GLYPHS.bang
 	}
+}
 
-	add() {
-		let sum = 0
-		let values = this.request()
-
-		for (let value in values) {
-			sum += value
-		}
-
-		return sum
+class PrintNode extends Riven.Node {
+	constructor(ctx, id, rect) {
+		super(ctx, id, rect)
+		this.glyph = Riven.NODE_GLYPHS.render
 	}
 
 	receive(q) {
-		this.send(this.add())
-	}
-
-	answer() {
-		return this.add()
+		console.log(q)
 	}
 }
+
+Ø("bang").create({x:2,y:4},BangNode)
+Ø("print").create({x:20,y:4},PrintNode)
+
+Ø("bang").connect("print")
+Ø("bang").send('This is a test.')
+
