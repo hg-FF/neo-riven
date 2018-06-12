@@ -1,6 +1,14 @@
 # NēoRiven
 A Node friendly re-implementation of [Riven](https://github.com/XXIIVV/Riven).
 
+## Installation
+Install it by running  
+```shell
+$ yarn add neo-riven
+# or
+$ npm i -s neo-riven
+```
+
 ## Usage.
 This implementation is *almost* cross-compatible with the original Riven implementation. However, the Node implementation must be done with ES5 classes.
 

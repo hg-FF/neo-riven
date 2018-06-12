@@ -1,14 +1,13 @@
 {
-  "name": "isov",
+  "name": "neo-riven",
   "version": "1.0.0",
-  "description": "Tiny framework for reactive flow-based programming.",
+  "description": "Re-implementation of Riven, a tiny framework for flow-based programming.",
   "main": "source/index.js",
-  "repository": "https://github.com/1101computer/isov",
-  "author": "Noah Swanson",
+  "repository": "https://github.com/1101computer/neo-riven",
+  "author": "Noah Swanson (original by Лu Лinveгa)",
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "ramda": "^0.25.0",
-    "s-js": "^0.4.8"
+    "ramda": "^0.25.0"
   }
 }
