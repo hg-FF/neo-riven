@@ -10,21 +10,17 @@ $ npm i -s neo-riven
 ```
 
 ## Usage.
-This implementation is *almost* cross-compatible with the original Riven implementation. However, the Node implementation must be done with ES5 classes.
-
+The selector must be bound to the Riven instance.
 ```javascript
 import Riven from 'neo-riven'
 const rvn = new Riven()
-const { Ø } = rvn.bind()
 
-class BangNode extends Riven.Node {
-	constructor(ctx, id, rect) {
-		super(ctx, id, rect)
-		this.glyph = Riven.NODE_GLYPHS.bang
-	}
-}
+const { Ø } = rvn.bind() // Now the selector is bound to the Riven instance.
+```
 
-class PrintNode extends Riven.Node {
+Nodes are defined as classes:
+```js
+class ConsoleNode extends Riven.Node {
 	constructor(ctx, id, rect) {
 		super(ctx, id, rect)
 		this.glyph = Riven.NODE_GLYPHS.render
@@ -34,10 +30,5 @@ class PrintNode extends Riven.Node {
 		console.log(q)
 	}
 }
-
-Ø("bang").create({x:2,y:4},BangNode)
-Ø("print").create({x:20,y:4},PrintNode)
-
-Ø("bang").connect("print")
-Ø("bang").bang()
 ```
+

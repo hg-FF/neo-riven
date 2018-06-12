@@ -8,6 +8,8 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "ramda": "^0.25.0"
+    "indental": "^1.0.0",
+    "ramda": "^0.25.0",
+    "s-js": "^0.4.8"
   }
 }

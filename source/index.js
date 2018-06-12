@@ -63,6 +63,10 @@ class Riven {
 		this.network = {}
 	}
 
+	mount(plugin, ...params) {
+		this[plugin.pluginName] = new plugin(this, ...params)
+	}
+
 	add(node) {
 		this.network[node.id] = node
 	}
@@ -176,7 +180,7 @@ class RNode {
     let payload = {};
     for (let route_id in this.ports.request.routes) {
       let route = this.ports.request.routes[route_id]
-      if (!route) { continueS }
+      if (!route) { continue }
       let answer = route.host.answer(q)
       if (!answer) { continue }
       payload[route.host.id] = answer
@@ -208,7 +212,7 @@ class RMesh extends RNode {
 	setup() {}
 	update() {
 		let bounds = {x: 0, y: 0}
-		for (let child of this.children) {
+		for (let node of this.children) {
 			bounds.x = node.rect.x > bounds.x ? node.rect.x : bounds.x
 			bounds.y = node.rect.y > bounds.y ? node.rect.y : bounds.y
 		}
