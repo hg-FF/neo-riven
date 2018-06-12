@@ -1,6 +1,6 @@
 {
   "name": "neo-riven",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Re-implementation of Riven, a tiny framework for flow-based programming.",
   "main": "source/index.js",
   "repository": "https://github.com/1101computer/neo-riven",

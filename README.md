@@ -17,12 +17,6 @@ import Riven from 'neo-riven'
 const rvn = new Riven()
 const { Ø } = rvn.bind()
 
-Ø("bang").create({x:2,y:4},BangNode)
-Ø("print").create({x:20,y:4},PrintNode)
-
-Ø("bang").connect("print")
-Ø("bang").bang()
-
 class BangNode extends Riven.Node {
 	constructor(ctx, id, rect) {
 		super(ctx, id, rect)
@@ -40,4 +34,10 @@ class PrintNode extends Riven.Node {
 		console.log(q)
 	}
 }
+
+Ø("bang").create({x:2,y:4},BangNode)
+Ø("print").create({x:20,y:4},PrintNode)
+
+Ø("bang").connect("print")
+Ø("bang").bang()
 ```
